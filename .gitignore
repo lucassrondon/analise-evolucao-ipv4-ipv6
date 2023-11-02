@@ -1,1 +1,2 @@
 data_files/*.txt
+!data_files/
