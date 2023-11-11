@@ -1,2 +1,2 @@
-data_files/*.txt
-!data_files/
+data_files/
+venv/
