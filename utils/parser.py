@@ -9,7 +9,8 @@ class Parser:
         # variável para guardar os dados extraídos de todos os arquivos
         dados_por_data = dict()
         ribs = listdir(self.rib_data_path)
-        ribs.remove(".gitkeep")
+        if '.gitkeep' in ribs:
+            ribs.remove('.gitkeep')
 
         # for para extrair dados de todos os arquivos na pasta de arquivos
         for rib_file_name in ribs:
@@ -48,7 +49,10 @@ class Parser:
                         elementos_rota = rota.split()
                         if not elementos_rota:
                             continue
-                        sistema_autonomo = elementos_rota[-1].strip()
+                        try:
+                            sistema_autonomo = int(elementos_rota[-1].strip())
+                        except ValueError:
+                            sistema_autonomo = int(elementos_rota[-2].strip())
 
                         # ifs para pegar as variáveis de interesse dos dados extraídos da linha """
 
@@ -115,11 +119,11 @@ class Parser:
             print(f"Total ASs anunciando IPs IPv6: {dados_por_data[chave]['total_anunciando_ipv6']}")
             print(f"ASs anunciando somente IPv4: {dados_por_data[chave]['anunciando_somente_ipv4']}")
             print(f"ASs anunciando somente IPv6: {dados_por_data[chave]['anunciando_somente_ipv6']}")
-            print(f"Ambos: {dados_por_data[chave]['anunciando_ambos']}")
+            print(f"ASs anunciando IPv4 e IPv6: {dados_por_data[chave]['anunciando_ambos']}")
             print()
-            counter = 0
+            counter = int()
             for sa in dados_por_data[chave]['dados_sistemas_autonomos']:
-                if counter > 100:
+                if counter > 10:
                     break
                 counter += 1
                 print(
@@ -127,4 +131,5 @@ class Parser:
                     f'IPv4: {dados_por_data[chave]["dados_sistemas_autonomos"][sa]["ipv4"]: >7} | '
                     f'IPv6: {dados_por_data[chave]["dados_sistemas_autonomos"][sa]["ipv6"]: >7}'
                 )
+            print(".\n.\n.")
             print('-'*50)
