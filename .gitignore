@@ -2,3 +2,10 @@ data_files/ribs/converted/*
 data_files/ribs/raw/*
 data_files/stats/*
 .idea/
+
+!data_files/
+!data_files/ribs/
+!data_files/ribs/converted/.gitkeep
+!data_files/ribs/raw/.gitkeep
+!data_files/stats/.gitkeep
+
