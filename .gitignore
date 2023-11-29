@@ -1,2 +1,4 @@
-data_files/
+data_files/ribs/converted/*
+data_files/ribs/raw/*
+data_files/stats/*
 .idea/
