@@ -7,21 +7,23 @@ class Parser:
 
     def run(self):
         # variável para guardar os dados extraídos de todos os arquivos
-        dados_por_data = {}
+        dados_por_data = dict()
+        ribs = listdir(self.rib_data_path)
+        ribs.remove(".gitkeep")
 
         # for para extrair dados de todos os arquivos na pasta de arquivos
-        for rib_file_name in listdir(self.rib_data_path):
+        for rib_file_name in ribs:
             rib_file_path = self.rib_data_path + rib_file_name
 
             # setando/resetando variáveis de interesse
-            total_anunciando_ipv4 = 0
-            total_anunciando_ipv6 = 0
-            total_sa = 0
-            anunciando_ambos = 0
-            anunciando_somente_ipv4 = 0
-            anunciando_somente_ipv6 = 0
-            quantidade_ipv4 = 0
-            quantidade_ipv6 = 0
+            total_anunciando_ipv4 = int()
+            total_anunciando_ipv6 = int()
+            total_sa = int()
+            anunciando_ambos = int()
+            anunciando_somente_ipv4 = int()
+            anunciando_somente_ipv6 = int()
+            quantidade_ipv4 = int()
+            quantidade_ipv6 = int()
 
             # listas de sistemas autônomos
             sistemas_autonomos = dict()
