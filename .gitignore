@@ -1,14 +1,1 @@
-data_files/ribs/converted/*
-data_files/ribs/raw/*
-data_files/stats/*
-data_files/stats/afrinic/*
-.idea/
-
-!data_files/
-!data_files/ribs/
-!data_files/ribs/converted/.gitkeep
-!data_files/ribs/raw/.gitkeep
-!data_files/stats/.gitkeep
-!data_files/stats/afrinic/.gitkeep
-
-
+data_files/
