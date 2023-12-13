@@ -1,18 +1,19 @@
 import matplotlib.pyplot as plt
-from   datetime import datetime
+from datetime import datetime
+
 
 class GraphPlotter:
     def __init__(self, dados) -> None:
-        self.dados          = dados
+        self.dados = dados
         self.datas_em_ordem = self.pegar_datas_em_ordem(dados)
-        self.tempos         = self.numerar_datas(dados)
+        self.tempos = self.numerar_datas(dados)
 
-    def plot_grafico_total_sa(self):
-        total_sa         = []
+    def plot_grafico_total_sa(self) -> None:
+        total_sa = []
         afrinic_total_sa = []
-        apnic_total_sa   = []
-        arin_total_sa    = []
-        lacnic_total_sa  = []
+        apnic_total_sa = []
+        arin_total_sa = []
+        lacnic_total_sa = []
         ripencc_total_sa = []
 
         for data in self.datas_em_ordem:
@@ -22,7 +23,7 @@ class GraphPlotter:
             arin_total_sa.append(self.dados[data]['arin']['total_sa'])
             lacnic_total_sa.append(self.dados[data]['lacnic']['total_sa'])
             ripencc_total_sa.append(self.dados[data]['ripencc']['total_sa'])
-    
+
         # Plotando linhas
         plt.plot(self.tempos, total_sa, label='Total ASes')
         plt.plot(self.tempos, afrinic_total_sa, label='Total ASes Afrinic')
@@ -40,13 +41,13 @@ class GraphPlotter:
         plt.legend()
         # Gerando grafico
         plt.show()
-    
-    def plot_grafico_quantidade_ipv4(self):
-        quantidade_ipv4         = []
+
+    def plot_grafico_quantidade_ipv4(self) -> None:
+        quantidade_ipv4 = []
         afrinic_quantidade_ipv4 = []
-        apnic_quantidade_ipv4   = []
-        arin_quantidade_ipv4    = []
-        lacnic_quantidade_ipv4  = []
+        apnic_quantidade_ipv4 = []
+        arin_quantidade_ipv4 = []
+        lacnic_quantidade_ipv4 = []
         ripencc_quantidade_ipv4 = []
 
         for data in self.datas_em_ordem:
@@ -56,7 +57,7 @@ class GraphPlotter:
             arin_quantidade_ipv4.append(self.dados[data]['arin']['quantidade_ipv4'])
             lacnic_quantidade_ipv4.append(self.dados[data]['lacnic']['quantidade_ipv4'])
             ripencc_quantidade_ipv4.append(self.dados[data]['ripencc']['quantidade_ipv4'])
-    
+
         # Plotando linhas
         plt.plot(self.tempos, quantidade_ipv4, label='Total IPV4')
         plt.plot(self.tempos, afrinic_quantidade_ipv4, label='Total IPV4 Afrinic')
@@ -75,12 +76,12 @@ class GraphPlotter:
         # Gerando grafico
         plt.show()
 
-    def plot_grafico_quantidade_ipv6(self):
-        quantidade_ipv6         = []
+    def plot_grafico_quantidade_ipv6(self) -> None:
+        quantidade_ipv6 = []
         afrinic_quantidade_ipv6 = []
-        apnic_quantidade_ipv6   = []
-        arin_quantidade_ipv6    = []
-        lacnic_quantidade_ipv6  = []
+        apnic_quantidade_ipv6 = []
+        arin_quantidade_ipv6 = []
+        lacnic_quantidade_ipv6 = []
         ripencc_quantidade_ipv6 = []
 
         for data in self.datas_em_ordem:
@@ -90,7 +91,7 @@ class GraphPlotter:
             arin_quantidade_ipv6.append(self.dados[data]['arin']['quantidade_ipv6'])
             lacnic_quantidade_ipv6.append(self.dados[data]['lacnic']['quantidade_ipv6'])
             ripencc_quantidade_ipv6.append(self.dados[data]['ripencc']['quantidade_ipv6'])
-    
+
         # Plotando linhas
         plt.plot(self.tempos, quantidade_ipv6, label='Total IPV6')
         plt.plot(self.tempos, afrinic_quantidade_ipv6, label='Total IPV6 Afrinic')
@@ -108,13 +109,13 @@ class GraphPlotter:
         plt.legend()
         # Gerando grafico
         plt.show()
-    
-    def plot_grafico_sa_anunciando_ipv4(self):
-        sa_anunciando_ipv4         = []
+
+    def plot_grafico_sa_anunciando_ipv4(self) -> None:
+        sa_anunciando_ipv4 = []
         afrinic_sa_anunciando_ipv4 = []
-        apnic_sa_anunciando_ipv4   = []
-        arin_sa_anunciando_ipv4    = []
-        lacnic_sa_anunciando_ipv4  = []
+        apnic_sa_anunciando_ipv4 = []
+        arin_sa_anunciando_ipv4 = []
+        lacnic_sa_anunciando_ipv4 = []
         ripencc_sa_anunciando_ipv4 = []
 
         for data in self.datas_em_ordem:
@@ -124,7 +125,7 @@ class GraphPlotter:
             arin_sa_anunciando_ipv4.append(self.dados[data]['arin']['anunciando_somente_ipv4'])
             lacnic_sa_anunciando_ipv4.append(self.dados[data]['lacnic']['anunciando_somente_ipv4'])
             ripencc_sa_anunciando_ipv4.append(self.dados[data]['ripencc']['anunciando_somente_ipv4'])
-    
+
         # Plotando linhas
         plt.plot(self.tempos, sa_anunciando_ipv4, label='Total SA Anuncianado Somente IPV4')
         plt.plot(self.tempos, afrinic_sa_anunciando_ipv4, label='Total SA Anuncianado Somente IPV4 Afrinic')
@@ -142,13 +143,13 @@ class GraphPlotter:
         plt.legend()
         # Gerando grafico
         plt.show()
-    
-    def plot_grafico_sa_anunciando_ipv6(self):
-        sa_anunciando_ipv6         = []
+
+    def plot_grafico_sa_anunciando_ipv6(self) -> None:
+        sa_anunciando_ipv6 = []
         afrinic_sa_anunciando_ipv6 = []
-        apnic_sa_anunciando_ipv6   = []
-        arin_sa_anunciando_ipv6    = []
-        lacnic_sa_anunciando_ipv6  = []
+        apnic_sa_anunciando_ipv6 = []
+        arin_sa_anunciando_ipv6 = []
+        lacnic_sa_anunciando_ipv6 = []
         ripencc_sa_anunciando_ipv6 = []
 
         for data in self.datas_em_ordem:
@@ -158,7 +159,7 @@ class GraphPlotter:
             arin_sa_anunciando_ipv6.append(self.dados[data]['arin']['anunciando_somente_ipv6'])
             lacnic_sa_anunciando_ipv6.append(self.dados[data]['lacnic']['anunciando_somente_ipv6'])
             ripencc_sa_anunciando_ipv6.append(self.dados[data]['ripencc']['anunciando_somente_ipv6'])
-    
+
         # Plotando linhas
         plt.plot(self.tempos, sa_anunciando_ipv6, label='Total SA Anuncianado Somente IPV6')
         plt.plot(self.tempos, afrinic_sa_anunciando_ipv6, label='Total SA Anuncianado Somente IPV6 Afrinic')
@@ -177,12 +178,12 @@ class GraphPlotter:
         # Gerando grafico
         plt.show()
 
-    def plot_grafico_sa_anunciando_ambos(self):
-        sa_anunciando_ambos         = []
+    def plot_grafico_sa_anunciando_ambos(self) -> None:
+        sa_anunciando_ambos = []
         afrinic_sa_anunciando_ambos = []
-        apnic_sa_anunciando_ambos   = []
-        arin_sa_anunciando_ambos    = []
-        lacnic_sa_anunciando_ambos  = []
+        apnic_sa_anunciando_ambos = []
+        arin_sa_anunciando_ambos = []
+        lacnic_sa_anunciando_ambos = []
         ripencc_sa_anunciando_ambos = []
 
         for data in self.datas_em_ordem:
@@ -192,7 +193,7 @@ class GraphPlotter:
             arin_sa_anunciando_ambos.append(self.dados[data]['arin']['anunciando_ambos'])
             lacnic_sa_anunciando_ambos.append(self.dados[data]['lacnic']['anunciando_ambos'])
             ripencc_sa_anunciando_ambos.append(self.dados[data]['ripencc']['anunciando_ambos'])
-    
+
         # Plotando linhas
         plt.plot(self.tempos, sa_anunciando_ambos, label='Total SA Anuncianado IPV4 e IPV6')
         plt.plot(self.tempos, afrinic_sa_anunciando_ambos, label='Total SA Anuncianado IPV4 e IPV6 Afrinic')
@@ -211,7 +212,8 @@ class GraphPlotter:
         # Gerando grafico
         plt.show()
 
-    def pegar_datas_em_ordem(self, dados):
+    @staticmethod
+    def pegar_datas_em_ordem(dados) -> list:
         datas = []
         for data in dados:
             date_object = datetime.strptime(data, "%Y-%m-%d")
@@ -224,9 +226,10 @@ class GraphPlotter:
 
         return datas
 
-    def numerar_datas(self, dados):
+    @staticmethod
+    def numerar_datas(dados) -> list:
         tempos = []
         for i in range(0, len(dados)):
-            tempos.append(i+1)
-        
+            tempos.append(i + 1)
+
         return tempos
