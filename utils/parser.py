@@ -2,7 +2,7 @@ from os import listdir
 
 
 class Parser:
-    def __init__(self, rib_data_path, stats_data_path) -> None:
+    def __init__(self, rib_data_path: str, stats_data_path: str) -> None:
         self.rib_data_path = rib_data_path
         self.stats_data_path = stats_data_path
 
@@ -16,8 +16,7 @@ class Parser:
         # for para extrair dados de todos os arquivos na pasta de arquivos
         for rib_file_name in ribs:
             rib_file_path = self.rib_data_path + rib_file_name
-
-            print(f'Processando arquivo: {rib_file_name}')
+            print(f'Processing file: {rib_file_name}')
 
             # setando/resetando variáveis de interesse
             total_anunciando_ipv4 = int()
@@ -193,8 +192,8 @@ class Parser:
 
         return dados_por_data
 
-    def pegar_ases_continente(self, continente, rib_file_name) -> list:
-        file_path = f'{self.stats_data_path}/{continente}/{rib_file_name}'
+    def pegar_ases_continente(self, continente: str, rib_file_name: str) -> list:
+        file_path = f'{self.stats_data_path}{continente}/{rib_file_name}'
 
         with open(file_path, "r") as rib_file:
             ases = []
@@ -209,7 +208,7 @@ class Parser:
             return ases
 
     @staticmethod
-    def print_dados(dados_por_data) -> None:
+    def print_dados(dados_por_data: dict) -> None:
         # imprime as contagens de cada arquivo
         for chave in dados_por_data:
             print('-' * 50)
@@ -223,8 +222,8 @@ class Parser:
             print(f"ASs anunciando IPv4 e IPv6: {dados_por_data[chave]['anunciando_ambos']}")
             print(
                 f"Afrinic | "
-                f"Total de IPV4:{dados_por_data[chave]['afrinic']['quantidade_ipv4']} | "
-                f"Total de IPV6:{dados_por_data[chave]['afrinic']['quantidade_ipv6']} | "
+                f"Total de IPV4: {dados_por_data[chave]['afrinic']['quantidade_ipv4']} | "
+                f"Total de IPV6: {dados_por_data[chave]['afrinic']['quantidade_ipv6']} | "
                 f"Total ASs: {dados_por_data[chave]['afrinic']['total_sa']} | "
                 f"ASs Somente IPV4: {dados_por_data[chave]['afrinic']['anunciando_somente_ipv4']} | "
                 f"ASs Somente IPV6: {dados_por_data[chave]['afrinic']['anunciando_somente_ipv6']} | "
@@ -232,8 +231,8 @@ class Parser:
             )
             print(
                 f"Apnic | "
-                f"Total de IPV4:{dados_por_data[chave]['apnic']['quantidade_ipv4']} | "
-                f"Total de IPV6:{dados_por_data[chave]['apnic']['quantidade_ipv6']} | "
+                f"Total de IPV4: {dados_por_data[chave]['apnic']['quantidade_ipv4']} | "
+                f"Total de IPV6: {dados_por_data[chave]['apnic']['quantidade_ipv6']} | "
                 f"Total ASs: {dados_por_data[chave]['apnic']['total_sa']} | "
                 f"ASs Somente IPV4: {dados_por_data[chave]['apnic']['anunciando_somente_ipv4']} | "
                 f"ASs Somente IPV6: {dados_por_data[chave]['apnic']['anunciando_somente_ipv6']} | "
@@ -241,8 +240,8 @@ class Parser:
             )
             print(
                 f"Arin | "
-                f"Total de IPV4:{dados_por_data[chave]['arin']['quantidade_ipv4']} | "
-                f"Total de IPV6:{dados_por_data[chave]['arin']['quantidade_ipv6']} | "
+                f"Total de IPV4: {dados_por_data[chave]['arin']['quantidade_ipv4']} | "
+                f"Total de IPV6: {dados_por_data[chave]['arin']['quantidade_ipv6']} | "
                 f"Total ASs: {dados_por_data[chave]['arin']['total_sa']} | "
                 f"ASs Somente IPV4: {dados_por_data[chave]['arin']['anunciando_somente_ipv4']} | "
                 f"ASs Somente IPV6: {dados_por_data[chave]['arin']['anunciando_somente_ipv6']} | "
@@ -250,8 +249,8 @@ class Parser:
             )
             print(
                 f"Lacnic | "
-                f"Total de IPV4:{dados_por_data[chave]['lacnic']['quantidade_ipv4']} | "
-                f"Total de IPV6:{dados_por_data[chave]['lacnic']['quantidade_ipv6']} | "
+                f"Total de IPV4: {dados_por_data[chave]['lacnic']['quantidade_ipv4']} | "
+                f"Total de IPV6: {dados_por_data[chave]['lacnic']['quantidade_ipv6']} | "
                 f"Total ASs: {dados_por_data[chave]['lacnic']['total_sa']} | "
                 f"ASs Somente IPV4: {dados_por_data[chave]['lacnic']['anunciando_somente_ipv4']} | "
                 f"ASs Somente IPV6: {dados_por_data[chave]['lacnic']['anunciando_somente_ipv6']} | "
@@ -259,8 +258,8 @@ class Parser:
             )
             print(
                 f"Ripencc | "
-                f"Total de IPV4:{dados_por_data[chave]['ripencc']['quantidade_ipv4']} | "
-                f"Total de IPV6:{dados_por_data[chave]['ripencc']['quantidade_ipv6']} | "
+                f"Total de IPV4: {dados_por_data[chave]['ripencc']['quantidade_ipv4']} | "
+                f"Total de IPV6: {dados_por_data[chave]['ripencc']['quantidade_ipv6']} | "
                 f"Total ASs: {dados_por_data[chave]['ripencc']['total_sa']} | "
                 f"ASs Somente IPV4: {dados_por_data[chave]['ripencc']['anunciando_somente_ipv4']} | "
                 f"ASs Somente IPV6: {dados_por_data[chave]['ripencc']['anunciando_somente_ipv6']} | "
